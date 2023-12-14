@@ -9,18 +9,18 @@ for i,r in enumerate(rows):
 
 def roll_rock(i,j, direction='n'):
     if direction == 'n':
-        ix, jey = i-1, j
+        i_next, j_next = i-1, j
     elif direction == 's':
-        ix, jey = i+1, j
+        i_next, j_next = i+1, j
     elif direction == 'w':
-        ix, jey = i, j-1
+        i_next, j_next = i, j-1
     elif direction == 'e':
-        ix, jey = i, j+1
+        i_next, j_next = i, j+1
 
-    if rows[ix][jey] == '.':
+    if rows[i_next][j_next] == '.':
         rows[i][j] = '.'
-        rows[ix][jey] = 'O'
-        roll_rock(ix, jey, direction)
+        rows[i_next][j_next] = 'O'
+        roll_rock(i_next, j_next, direction)
 
 # iterate through rows from last to first
 for i in range(len(rows)-1, 0, -1):
